@@ -10,8 +10,9 @@ def home():
 
 @app.route('/get', methods=['GET', 'POST'])
 def get_bot_response():
-    userText = request.json.get('message')  # Get the message from the frontend
+    userText = request.json.get('message')
     bot_response = str(chatbot(userText))
+    print(f'User: {userText}, Response: {bot_response}')
     return jsonify({'response': bot_response})
 
 if __name__ == "__main__":
