@@ -20,7 +20,8 @@
             console.log(userInput);
             const chatbox = document.getElementById('chatbox');
             const userMessage = document.createElement('p');
-            userMessage.innerHTML = userInput;
+            userMessage.id = 'user'
+            userMessage.innerHTML = '<p> You: ' + userInput + '</p>';
             chatbox.appendChild(userMessage);
             const sendButton = document.getElementById('sendButton');
             console.log('sending message to server....');
@@ -37,7 +38,8 @@
                 // Display the bot's response
                 console.log('generated response: ', data.response);
                 const botResponse = document.createElement('p');
-                botResponse.innerHTML = data.response;
+                botResponse.id = 'bot';
+                botResponse.innerHTML = '<p> Bot: ' +  data.response + '</p>';
                 chatbox.appendChild(botResponse);
                 console.log('response displayed');
                 document.getElementById('userInput').value = '';
