@@ -1,8 +1,10 @@
 import openai
 from openai import OpenAI
 import os
+from dotenv import load_dotenv
 
 def chatbot(message):
+    load_dotenv()
     base_url = "https://api.aimlapi.com/v1"
     api_key = os.getenv('API_KEY')
     api = OpenAI(base_url=base_url, api_key=api_key)
@@ -22,7 +24,6 @@ def chatbot(message):
         temperature=0.7,
         max_tokens=256,
     )
-    
     response = completion.choices[0].message.content
     return response
     
